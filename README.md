@@ -112,6 +112,7 @@ If you want to test and run locally:
    yarn add hardhat
    ```
 If you want to deploy to a testnet:
+
 3. Add a `.env` file with the same contents of `.env.example`, but replaced with your variables.
    1. DO NOT PUSH YOUR PRIVATE_KEY TO GITHUB
 4. Add `dotenv: .env` to your `brownie-config.yaml`
