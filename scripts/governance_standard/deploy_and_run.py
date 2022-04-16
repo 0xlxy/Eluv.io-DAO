@@ -114,12 +114,13 @@ def propose(store_value):
         tx.wait(1)
     propose_tx.wait(2)  # We wait 2 blocks to include the voting delay
     # This will return the proposal ID
-    print(f"Proposal state {GovernorContract[-1].state(propose_tx.return_value)}")
+    proposal_id = propose_tx.events['ProposalCreated']['proposalId']
+    print(f"Proposal state {GovernorContract[-1].state(proposal_id)}")
     print(
-        f"Proposal snapshot {GovernorContract[-1].proposalSnapshot(propose_tx.return_value)}"
+        f"Proposal snapshot {GovernorContract[-1].proposalSnapshot(proposal_id)}"
     )
     print(
-        f"Proposal deadline {GovernorContract[-1].proposalDeadline(propose_tx.return_value)}"
+        f"Proposal deadline {GovernorContract[-1].proposalDeadline(proposal_id)}"
     )
     return propose_tx.return_value
 
